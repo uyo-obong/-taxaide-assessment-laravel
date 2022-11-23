@@ -15,6 +15,16 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login','register']]);
     }
 
+    public function authInfo() {
+        $user = Auth::user();
+        return response()->json([
+            'status' => 'success',
+            'data' => [
+                'user' => $user,
+            ]
+        ]);
+    }
+
     public function login(Request $request)
     {
         $request->validate([
