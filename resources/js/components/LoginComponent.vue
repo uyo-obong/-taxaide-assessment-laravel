@@ -25,7 +25,8 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">Login</button>
+                                    <button type="submit" class="btn btn-primary">Login</button> |
+                                    <a href="/regsister" class="btn btn-primary">Register</a>
                                 </div>
                             </div>
                         </form>
@@ -61,7 +62,7 @@ export default {
                 console.log(error)
                 this.loginError = true
             });
-        }
+        },
     }
 }
 

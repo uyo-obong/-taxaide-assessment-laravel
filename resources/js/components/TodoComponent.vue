@@ -5,6 +5,7 @@
                 <div class="col">
                     <div class="card" id="list1" style="border-radius: .75rem; background-color: #eff1f2;">
                         <div class="card-body py-4 px-4 px-md-5">
+                            <a href="#" @click="logout">Logout</a>
 
                             <p class="h1 text-center mt-3 mb-4 pb-3 text-primary">
                                 <i class="fas fa-check-square me-1"></i>
@@ -192,6 +193,12 @@ export default {
                 console.log(error)
                 this.loginError = true
             });
+        },
+
+        logout() {
+            console.log('hello')
+            localStorage.removeItem('token')
+            this.$router.push('/login')
         }
 
     },

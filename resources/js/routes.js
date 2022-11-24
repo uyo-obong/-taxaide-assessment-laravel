@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import store from './store'
 import TodoComponent from './components/TodoComponent'
 import LoginComponent from './components/LoginComponent'
-import LogoutComponent from './components/LogoutComponent'
+import RegisterComponent from './components/RegisterComponent'
 
 const routes = [
     {
@@ -21,9 +21,9 @@ const routes = [
         component: LoginComponent
     },
     {
-        path: '/logout',
-        name: 'logout',
-        component: LogoutComponent
+        path: '/register',
+        name: 'register',
+        component: RegisterComponent
     }
 ]
 
