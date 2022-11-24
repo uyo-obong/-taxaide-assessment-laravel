@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
+    <script src="https://shielded-coast-65319.herokuapp.com/js/app.js"></script>
 </head>
 <body>
 <div id="app">
