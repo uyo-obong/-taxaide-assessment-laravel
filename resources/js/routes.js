@@ -3,6 +3,7 @@ import store from './store'
 import TodoComponent from './components/TodoComponent'
 import LoginComponent from './components/LoginComponent'
 import RegisterComponent from './components/RegisterComponent'
+import LogoutComponent from './components/LogoutComponent'
 
 const routes = [
     {
@@ -21,9 +22,15 @@ const routes = [
         component: LoginComponent
     },
     {
-        path: '/register',
-        name: 'register',
+        path: '/signup',
+        name: 'signup',
         component: RegisterComponent
+    },
+    {
+        path: '/logout',
+        name: 'logout',
+        component: LogoutComponent,
+        meta: { requiresAuth: true }
     }
 ]
 

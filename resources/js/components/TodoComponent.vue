@@ -5,7 +5,7 @@
                 <div class="col">
                     <div class="card" id="list1" style="border-radius: .75rem; background-color: #eff1f2;">
                         <div class="card-body py-4 px-4 px-md-5">
-                            <a href="#" @click="logout">Logout</a>
+                            <a href="/logout">Logout</a>
 
                             <p class="h1 text-center mt-3 mb-4 pb-3 text-primary">
                                 <i class="fas fa-check-square me-1"></i>
@@ -90,6 +90,8 @@
 <script>
 import moment from 'moment';
 
+const baseUrl = 'http://localhost:8089'
+
 export default {
     data() {
         return {
@@ -127,7 +129,7 @@ export default {
                     title: this.update.title,
                 }
 
-                axios.patch(`http://localhost:8089/api/v1/todo/update/${id}`, data, {headers: this.header}).then(response => {
+                axios.patch(`${baseUrl}/api/v1/todo/update/${id}`, data, {headers: this.header}).then(response => {
                     this.update.title = ''
                     this.update_form = false
                     this.updatedId = ''
@@ -148,7 +150,7 @@ export default {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
-            axios.get('http://127.0.0.1:8001/api/v1/auth', {headers: header}).then(response => {
+            axios.get(`/api/v1/auth`, {headers: header}).then(response => {
                 console.log(response.data)
                 this.auth = response.data.data
             }).catch(error => {
@@ -158,7 +160,7 @@ export default {
         },
 
         fetchTodos() {
-            axios.get('http://localhost:8089/api/v1/todo/fetch', {headers: this.header}).then(response => {
+            axios.get(`${baseUrl}/api/v1/todo/fetch`, {headers: this.header}).then(response => {
                 console.log(response.data.data)
                 this.todos = response.data.data
             }).catch(error => {
@@ -175,7 +177,7 @@ export default {
                 description: this.form.title
             }
 
-            axios.post('http://localhost:8089/api/v1/todo/create', data, {headers: this.header}).then(response => {
+            axios.post(`${baseUrl}/api/v1/todo/create`, data, {headers: this.header}).then(response => {
                 this.fetchTodos()
                 this.form.title = ''
                 alert('Todo created successfully')
@@ -186,7 +188,7 @@ export default {
         },
 
         deleteTodo(id) {
-            axios.delete(`http://localhost:8089/api/v1/todo/delete/${id}`, {headers: this.header}).then(response => {
+            axios.delete(`${baseUrl}/api/v1/todo/delete/${id}`, {headers: this.header}).then(response => {
                 this.fetchTodos()
                 alert('Item deleted successfully')
             }).catch(error => {
@@ -194,12 +196,6 @@ export default {
                 this.loginError = true
             });
         },
-
-        logout() {
-            console.log('hello')
-            localStorage.removeItem('token')
-            this.$router.push('/login')
-        }
 
     },
 
